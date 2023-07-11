@@ -1,24 +1,82 @@
-let obj1 =
-{
-    Name: "Person 1",
-    Age: 5
-    
-};
+1. Do the below programs in anonymous function & IIFE 
+a. Print odd numbers in an array
 
-let obj2 =  
-{
-    Age: 5, 
-    Name: "Person 1"
-    
-};
+((arr) => {
+  arr.forEach((num) => {
+    if (num % 2 !== 0) {
+      console.log(num);
+    }
+  });
+})([1, 2, 3, 4, 5, 6, 7, 8, 9]);
 
-function json (obj1, obj2)
-{
-  let OBJ1 = JSON.stringify(obj1, Object.keys(obj1).sort());
-  let OBJ2 = JSON.stringify(obj2, Object.keys(obj2).sort());
-  return (OBJ1 === OBJ2);
-}
+=========================================================================================================================================================================
+b. Convert all the strings to title caps in a string array
+((arr) => {
+  const titleCaps = arr.map((str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  });
+  console.log(titleCaps);
+})(["hello", "world", "javascript"]);
 
-console.log(json(obj1, obj2)); 
+=========================================================================================================================================================================
 
+c. Sum of all numbers in an array
+((arr) => {
+  const sum = arr.reduce((acc, num) => {
+    return acc + num;
+  }, 0);
+  console.log(sum);
+})([1, 2, 3, 4, 5]);
+
+
+=========================================================================================================================================================================
+d. Return all the prime numbers in an array e Return all the palindromes in an array
+
+((arr) => {
+  const isPrime = (num) => {
+    if (num <= 1) {
+      return false;
+    }
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+      if (num % i === 0) {
+        return false;
+      }
+    }
+    return true;
+  };
+  const primes = arr.filter((num) => isPrime(num));
+  console.log(primes);
+})([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+
+
+=========================================================================================================================================================================
+f. Retum median of two sorted arrays of the same size.
+((arr) => {
+  const isPalindrome = (str) => {
+    const reversed = str.split("").reverse().join("");
+    return str === reversed;
+  };
+  const palindromes = arr.filter((str) => isPalindrome(str));
+  console.log(palindromes);
+})(["level", "hello", "radar", "world"]);
+
+=========================================================================================================================================================================
+g. Remove duplicates from an array
+
+
+((arr) => {
+  const uniqueArr = arr.filter((item, index) => arr.indexOf(item) === index);
+  console.log(uniqueArr);
+})([1, 2, 2, 3, 4, 4, 5, 6, 6, 7]);
+
+
+=========================================================================================================================================================================
+h. Rotate an array by k time
+
+
+((arr, k) => {
+  const rotations = k % arr.length;
+  const rotatedArray = arr.slice(rotations).concat(arr.slice(0, rotations));
+  console.log(rotatedArray);
+})([1, 2, 3, 4, 5], 3);
 
